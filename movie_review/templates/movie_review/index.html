@@ -1,7 +1,7 @@
 {% extends 'movie_review/base.html' %}
 
 {% block contents %}
-<a href="">리뷰 작성</a>
+<a href="{% url 'movie_review:new' %}">리뷰 작성</a>
 <table class="table w-100">
     <thead class="bg-dark text-bg-dark">
         <tr>
@@ -11,20 +11,13 @@
         </tr>
     </thead>
     <tbody>
+        {% for review in reviews %}
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+            <th scope="row">{{ review.num }}</th>
+            <td><a href="{% url 'movie_review:detail' review.id %}">{{ review.review.title }}</a></td>
+            <td>{{ review.review.created_at }}</td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-        </tr>
+        {% endfor %}
     </tbody>
 </table>
 {% endblock %}

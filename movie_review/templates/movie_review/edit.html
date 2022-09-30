@@ -1,0 +1,20 @@
+{% extends 'movie_review/base.html' %}
+
+{% block contents %}
+<div class="container ">
+    <h1 class="text-center">영화 리뷰 작성</h1>
+</div>
+<div class="container">
+    <form action="{% url 'movie_review:modify' review.id %}" method="GET">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name="title" type="text" class="form-control" id="title" value="{{ reveiw.title }}">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea name="content" class="form-control" id="content" rows="3" value="{{ review.content }}"></textarea>
+        </div>
+        <button class="btn btn-outline-secondary" type="submit">수정 완료</button>
+    </form>
+</div>
+{% endblock %}
