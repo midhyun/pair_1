@@ -1,0 +1,30 @@
+{% extends 'movie_review/base.html' %}
+
+{% block contents %}
+<a href="">리뷰 작성</a>
+<table class="table w-100">
+    <thead class="bg-dark text-bg-dark">
+        <tr>
+            <th scope="col">리뷰 번호</th>
+            <th scope="col">리뷰 제목</th>
+            <th scope="col">작성 시간</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
