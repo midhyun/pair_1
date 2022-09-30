@@ -1,12 +1,14 @@
 {% extends 'movie_review/base.html' %}
 
 {% block contents %}
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{ review.title }}</h5>
-        <p class="card-text">{{ review.content }}</p>
-        <a href="{% url 'movie_review:edit' review.id %}" class="card-link">수정</a>
-        <a href="{% url 'movie_review:delete' review.id %}" class="card-link">삭제</a>
+<div class="d-flex justify-content-center">
+    <div class="card" style="width: 18rem; margin-top: 3rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ review.title }}</h5>
+            <p class="card-text">{{ review.content }}</p>
+            <a href="{% url 'movie_review:edit' review.id %}" class="card-link">수정</a>
+            <a href="{% url 'movie_review:delete' review.id %}" class="card-link">삭제</a>
+        </div>
     </div>
 </div>
 {% endblock %}

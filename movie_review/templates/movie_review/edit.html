@@ -4,17 +4,25 @@
 <div class="container ">
     <h1 class="text-center">영화 리뷰 작성</h1>
 </div>
-<div class="container">
-    <form action="{% url 'movie_review:modify' review.id %}" method="GET">
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input name="title" type="text" class="form-control" id="title" value="{{ reveiw.title }}">
+<div style="display: flex; justify-content: center;">
+    <div class="card" style="width: 80%; background-color: rgb(255, 255, 255, 0.8);">
+        <div class="card-body">
+            <form action="{% url 'movie_review:modify' review.id %}" method="GET">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="title" type="text" class="form-control" id="title" value="{{ review.title }}">
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea name="content" class="form-control" id="content" rows="3">{{ review.content }}</textarea>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-outline-secondary" type="submit">수정 완료</button>
+                    <a href="{% url 'movie_review:index' %}"><button class="btn btn-outline-secondary"
+                            type="submit">취소</button></a>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">Content</label>
-            <textarea name="content" class="form-control" id="content" rows="3" value="{{ review.content }}"></textarea>
-        </div>
-        <button class="btn btn-outline-secondary" type="submit">수정 완료</button>
-    </form>
+    </div>
 </div>
 {% endblock %}

@@ -1,23 +1,33 @@
 {% extends 'movie_review/base.html' %}
 
 {% block contents %}
-<a href="{% url 'movie_review:new' %}">리뷰 작성</a>
-<table class="table w-100">
-    <thead class="bg-dark text-bg-dark">
-        <tr>
-            <th scope="col">리뷰 번호</th>
-            <th scope="col">리뷰 제목</th>
-            <th scope="col">작성 시간</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for review in reviews %}
-        <tr>
-            <th scope="row">{{ review.num }}</th>
-            <td><a href="{% url 'movie_review:detail' review.id %}">{{ review.review.title }}</a></td>
-            <td>{{ review.review.created_at }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="container mt-5">
+    <h1 class="text-center">
+        영화 리-뷰 사이트
+    </h1>
+    <a class="btn btn-primary mb-3" href="{% url 'movie_review:new'%}">리뷰 작성</a>
+    <table class="table w-100">
+        <thead class="bg-dark text-bg-dark">
+            <tr>
+                <th scope="col">리뷰 번호</th>
+                <th scope="col">리뷰 제목</th>
+                <th scope="col">작성 시간</th>
+            </tr>
+        </thead>
+        <tbody style="background-color: rgba(255, 255, 255, 0.7);">
+            {% for review in reviews %}
+            <tr>
+                <th scope="row">{{ review.num }}</th>
+                {% if review.review.title == '' %}
+                <td><a href="{% url 'movie_review:detail' review.review.id %}">제목이 없습니다</a></td>
+                {% else %}
+                <td><a href="{% url 'movie_review:detail' review.review.id %}">{{ review.review.title }}</a></td>
+                {% endif %}
+                <td>{{ review.dates }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
 {% endblock %}

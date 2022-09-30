@@ -8,11 +8,51 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: linear-gradient(to bottom right, red, orange, yellow, green, blue, indigo, purple);
+            width: 100%;
+            height: 1080px;
+            position: relative;
+            cursor: wait;
+        }
+
+        h1 {
+            text-shadow: -3px 0 rgb(250, 1, 1), 0 3px rgb(250, 1, 1), 3px 0 rgb(250, 1, 1), 0 -3px rgb(250, 1, 1);
+            color: yellow;
+        }
+
+        a {
+            cursor: wait;
+        }
+
+        .bono_imgs {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+    </style>
 </head>
 
 <body>
     {% block contents %}
     {% endblock %}
+    <div style="position: absolute; left: 45%; top: 30%;">
+        <img src="https://c.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="">
+    </div>
+    <div class="bono_imgs">
+        <img src="https://user-images.githubusercontent.com/108651809/193190149-2b63d233-1f26-4c41-a444-5e03bc5bdf58.png"
+            alt="">
+        <img src="https://user-images.githubusercontent.com/108651809/193190804-4a601f03-ad4b-49fd-894c-3da840a6add5.png"
+            alt="" style="width: 435px;">
+        <img src="https://user-images.githubusercontent.com/108651809/193190808-a03c2a30-73e3-4967-8023-09d915a07418.png"
+            alt="" style="width: 435px;">
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>

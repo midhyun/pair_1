@@ -12,7 +12,8 @@ def index(request):
     c = 0
     for i in reviews:
         c += 1
-        reviews_list.append({'review' : i , 'num': c})
+        reviews_list.append({'review' : i , 'num': c, 'dates': i.created_at.strftime(f'%Y년 %m월 %d일 %H시 %M분')})
+    print(reviews_list)
     context = {
         'reviews' : reviews_list ,
     }
